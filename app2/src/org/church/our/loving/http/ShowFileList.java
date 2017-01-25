@@ -1,0 +1,67 @@
+package org.church.our.loving.http;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.math.BigDecimal;
+import java.net.URLDecoder;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.io.FileUtils;
+
+/**
+ * Servlet implementation class ShowFileList
+ */
+public class ShowFileList extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public ShowFileList() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html");
+		response.setCharacterEncoding("UTF-8");
+		File outdir = new File(ConfigureSetup.uploadFolder);
+		File [] files = outdir.listFiles();
+		PrintWriter printWriter = response.getWriter();
+		for (int i = 0; i < files.length; i++) {
+			File file = files[i];
+			if (!file.isDirectory()) {
+				String originalFilename = file.getName();
+				String dateStr = "";
+				long filesize = FileUtils.sizeOf(file);
+				double sizeInMB = filesize * 1.00 /1024.00/1024.00;
+				BigDecimal bigDecimal = new BigDecimal(sizeInMB);
+				bigDecimal = bigDecimal.setScale(2, BigDecimal.ROUND_HALF_UP);
+				if (Upload.fileDateMapping.containsKey(originalFilename)) {
+					dateStr = Upload.fileDateMapping.get(originalFilename);
+				}
+				String decodedFilename = URLDecoder.decode(originalFilename, "utf-8");
+				printWriter.append("<p>" +  "  <a href =\"upload/" + decodedFilename + "\">" + decodedFilename +  "</a> " + dateStr + " &nbsp;&nbsp; <a href =\"download?type=delete&filename=" + decodedFilename + "\"> Delete</a>   SIZE:  " + bigDecimal + "MB.</p>" );
+			}
+		}
+		
+		printWriter.flush();
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}
