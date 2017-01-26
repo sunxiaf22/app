@@ -1,0 +1,8 @@
+@media (max-width:930px) {
+#pconly {
+	display:none;
+}
+#main {
+	margin-top: 70px!important;
+}
+}

@@ -15,9 +15,6 @@ request.setCharacterEncoding("utf-8");
 <jsp:include page="menu.jsp"></jsp:include>
 <!-- Content -->
 <div class="w3-content" style="max-width:1100px;margin-bottom:20px" id="main">
-  <div class="w3-panel">
-    <h1><b>&nbsp;</b></h1>
-  </div>
   <!-- Contact -->
   <div  class="w3-row-padding w3-card-4 w3-padding-medium w3-round-large w3-padding-bottom">
 	  <form class="w3-container" method="POST" enctype="multipart/form-data" action="upload">

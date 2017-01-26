@@ -16,7 +16,7 @@ request.setCharacterEncoding("utf-8");
 	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="css/w3.css">
 	<meta http-equiv="description" content="This is my page">
-	<link rel="stylesheet" href="images/w3.css" type="text/css">
+	<link rel="stylesheet" href="css/main.css" type="text/css">
 	<style>
 	html,body,h1,h2,h3,h4 {font-family:Verdana, sans-serif}
 	.mySlides {display:none}

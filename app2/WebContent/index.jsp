@@ -15,9 +15,6 @@ request.setCharacterEncoding("utf-8");
 <jsp:include page="menu.jsp"></jsp:include>
 <!-- Content -->
 <div class="w3-content" style="max-width:1100px;margin-bottom:80px" id="main">
-  <div class="w3-panel">
-    <h3><b>主页</b></h3>
-  </div>
   <!-- Slideshow -->
   <div class="w3-container">
     <div class="w3-display-container mySlides">

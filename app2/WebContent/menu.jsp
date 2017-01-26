@@ -27,7 +27,7 @@ response.setContentType("text/html");
 
 <!-- Top menu on small screens -->
 <header class="w3-container w3-top w3-hide-large w3-white w3-xlarge w3-padding-8" style="opacity:0.9;">
-  <span class="w3-left w3-padding" id="nav"> <a href="/app2"><img alt="" src="images/favicon.ico" width="30" ></a> <span>&nbsp;We're One</span></span>
+  <span class="w3-left w3-padding" id="nav"> <a href="/app2"><img alt="" src="images/favicon.ico" width="30" ></a> <span style="font-size:80%;">&nbsp;We're One</span></span>
   <a href="javascript:void(0)" class="w3-right w3-btn w3-white" onclick="w3_open()" style="background-image:url(images/menu.png); background-size: cover;">&nbsp;&nbsp;&nbsp;</a>
 </header>
 

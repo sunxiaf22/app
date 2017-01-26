@@ -5,8 +5,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.church.our.loving.constants.IOurChurchConstants;
 import org.church.our.loving.util.SecurityUtil;
 import org.church.our.loving.util.StringUtil;
 

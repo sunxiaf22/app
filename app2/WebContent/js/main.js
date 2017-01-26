@@ -53,4 +53,6 @@ $(".regbtn").click (function () {
 });
 var titleV = $("title").html();
 var subTitle = $("#nav span").html(titleV);
+var pctitle = "<div class=\"w3-panel\" id=\"pconly\"><h3><b>主页</b></h3></div>";
+$("#main").prepend(pctitle);
 });

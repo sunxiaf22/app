@@ -14,7 +14,7 @@ request.setCharacterEncoding("utf-8");
 <!-- Sidenav/menu -->
 <jsp:include page="menu.jsp"></jsp:include>
 <!-- Content -->
-<div class="w3-content" id="main" style="text-align: center;">
+<div class="w3-content" style="max-width:1100px;margin-bottom:20px" id="main"  style="text-align: center;">
   <div class="w3-panel">
     <h1><b>&nbsp;</b></h1>
   </div>

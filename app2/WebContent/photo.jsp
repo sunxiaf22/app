@@ -15,13 +15,9 @@ request.setCharacterEncoding("utf-8");
 <!-- Sidenav/menu -->
 <jsp:include page="menu.jsp"></jsp:include>
 <!-- Content -->
-<div class="w3-main" style="margin-left:300px">
-  <div class="w3-panel w3-form" style="padding-top: 32px !important;">
-    <h1><b>我的相册</b></h1>
-  </div>
+<div class="w3-main" style="margin-left:300px" id = "main">
   <!-- Push down content on small screens --> 
   <div class="w3-hide-large" style=""></div>
-  
   <!-- Photo grid -->
   <div class="w3-row">
     <c:out value="${images }" escapeXml="false"></c:out>
