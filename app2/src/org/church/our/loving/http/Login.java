@@ -35,12 +35,12 @@ public class Login extends HttpServlet {
 			request.getSession().setAttribute("username", username);
 			response.sendRedirect("index.jsp");
 		}else {
-			request.getSession().setAttribute("msg", "密码错误");
-			response.sendRedirect("login.jsp");
+			request.setAttribute("msg", "密码错误");
+			request.getRequestDispatcher("login.jsp").forward(request, response);
 		}
 	}
 
-	/**
+	/** 
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
