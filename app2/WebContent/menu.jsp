@@ -9,7 +9,7 @@ response.setContentType("text/html");
   <img src="images/icon.jpg" width ="90" alt="We're One"></a>
   <div class="logininfo" style="display:inline-flex;">
   <c:if test="${ empty username }">
-  	您还没有请登录！
+  	<a href="login.jsp">请点击登录 ！</a>
   </c:if>
   <c:if test="${not empty username }">
   	<img alt="" src="images/timg.jpg" height="35" > <span style="height:35px; line-height:35px; padding-left:5px;"> 欢迎您， <c:out value="${username }"></c:out>! </span>

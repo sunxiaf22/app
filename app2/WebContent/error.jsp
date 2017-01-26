@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
     <base href="<%=basePath%>">
 	<meta charset="UTF-8">
-    <title>哎呀~ 有错误liao,请稍后重试吧！^_^!!</title>
+    <title>出错了</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -46,12 +46,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!-- Sidenav/menu -->
 <jsp:include page="menu.jsp"></jsp:include>
 <!-- Content -->
-<div class="w3-content" style="max-width:1100px;margin-bottom:20px" id="main">
+<div class="w3-content" id="main">
   <div class="w3-panel">
     <h1><b>&nbsp;</b></h1>
   </div>
-  <img alt="Error" src="images/timg_error.jpg" style="width:80%;"/>
+  <img alt="Error" src="images/timg_error2.jpg"/>
 </div>
+<p>
+<button name ="返回首页" onclick="javascript: window.location.href='index.jsp'">返回首页</button>
+</p>
 <!-- Footer -->
 <jsp:include page="footer.jsp"></jsp:include>
 </body>

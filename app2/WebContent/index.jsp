@@ -48,7 +48,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!-- Content -->
 <div class="w3-content" style="max-width:1100px;margin-bottom:80px" id="main">
   <div class="w3-panel">
-    <h1><b>主页</b></h1>
+    <h3><b>主页</b></h3>
   </div>
   <!-- Slideshow -->
   <div class="w3-container">

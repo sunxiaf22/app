@@ -1,13 +1,13 @@
 package org.church.our.loving.http;
 
 import java.io.IOException;
-import java.util.Calendar;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.church.our.loving.constants.IOurChurchConstants;
+import org.church.our.loving.util.SecurityUtil;
 import org.church.our.loving.util.StringUtil;
 
 /**
@@ -28,18 +28,16 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		SecurityUtil.checkFormRequest("", request, response,"login.jsp");
 		request.setCharacterEncoding("utf-8");
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		System.out.println(username + password);
 		if (!StringUtil.isEmpty(username) && !StringUtil.isEmpty(password) && username.equalsIgnoreCase("admin") && password.equalsIgnoreCase("307")) {
 			request.getSession().setAttribute("username", username);
 			response.sendRedirect("index.jsp");
 		}else {
 			request.setAttribute("msg", "密码错误");
-			request.getSession().setAttribute("formid", Calendar.getInstance().getTimeInMillis());
-			request.getRequestDispatcher("login.jsp").forward(request, response);
+			SecurityUtil.sendRequestDispatcher("login.jsp", request, response);
 		}
 	}
 

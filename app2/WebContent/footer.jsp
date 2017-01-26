@@ -1,8 +1,14 @@
+<%@page import="org.church.our.loving.util.StringUtil"%>
+<%@page import="org.church.our.loving.constants.IOurChurchConstants"%><%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8" %><%
 request.setCharacterEncoding("utf-8");
 response.setCharacterEncoding("utf-8");
 response.setContentType("text/html");
+String receiveformid = (String) request.getSession().getAttribute(IOurChurchConstants.FORM_ID);
+if (StringUtil.isEmpty(receiveformid)) receiveformid = "";
 %>
+<p style="color:red;"><c:out value="${msg }"></c:out></p>
+
 <footer class="w3-container w3-light-grey" >
   <h4>&nbsp;</h4>
   <!-- 
@@ -24,3 +30,10 @@ response.setContentType("text/html");
 </a>
 <script src="js/jquery-1.11.3.js"  type="text/javascript"></script>
 <script src="js/main.js"  type="text/javascript"></script>
+
+<script>
+$(document).ready(function () {
+	var inputhidden = "<input type = 'hidden' name = 'formid' value = '<%= receiveformid %>'>";
+	$("form").prepend(inputhidden);
+});
+</script>

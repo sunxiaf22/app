@@ -67,7 +67,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<button type="submit" class="w3-btn w3-padding-12 w3-round">登录</button> &nbsp;|&nbsp;
 		<button type="button" class="w3-btn w3-padding-12 w3-round regbtn">注册</button>
 		</div>
-		<div style="color:red;"><c:out value="${msg }"></c:out></div>
 	  </form>
   </div>
 </div>
