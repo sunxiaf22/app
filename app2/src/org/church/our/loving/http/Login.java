@@ -1,6 +1,8 @@
 package org.church.our.loving.http;
 
 import java.io.IOException;
+import java.util.Calendar;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -36,6 +38,7 @@ public class Login extends HttpServlet {
 			response.sendRedirect("index.jsp");
 		}else {
 			request.setAttribute("msg", "密码错误");
+			request.getSession().setAttribute("formid", Calendar.getInstance().getTimeInMillis());
 			request.getRequestDispatcher("login.jsp").forward(request, response);
 		}
 	}
