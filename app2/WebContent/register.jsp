@@ -17,15 +17,20 @@ request.setCharacterEncoding("utf-8");
 <div class="w3-content" style="max-width:1100px;margin-bottom:20px" id="main">
   <!-- Contact -->
   <div  class="w3-row-padding w3-card-4 w3-padding-medium w3-round-large w3-padding-bottom">
-	  <form class="w3-container" method="POST" enctype="multipart/form-data" action="upload">
-	  <input type="hidden" name = "formtype" value = "register">
+	  <form class="w3-container" method="POST" enctype="multipart/form-data" action="#">
+	  	<input type="hidden" name = "formtype" value = "register">
 		<div class="w3-group">
 		  <label>姓名</label>
 		  <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" type="text" name="username" required>
 		</div>
 		<div class="w3-group">
+		  <label style="margin-right: 20px;">性别</label>
+		  <input class="w3-border w3-hover-border-black" type="radio" name=gender value="male" required checked>(男) &nbsp;
+		  <input class="w3-border w3-hover-border-black" type="radio" name=gender value="female" required> (女)
+		</div>
+		<div class="w3-group">
 		  <label>密码</label>
-		  <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" type="text" name="password" required>
+		  <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" type="password" name="password" required>
 		</div>
 		<div class="w3-group">
 		  <label>邮箱</label>
@@ -35,10 +40,6 @@ request.setCharacterEncoding("utf-8");
 		  <label>手机</label>
 		  <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" type="text" name="phone" required>
 		</div>
-		<!-- <div class="w3-group">
-		  <label>介绍</label>
-		  <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" type="text" name="comments">
-		</div> -->
 		<input type="hidden" name="status" value = "A"/>
 		<div class="w3-group">
 		  <div class="w3-btn w3-round-xxlarge" id="upload">上传头像</div>

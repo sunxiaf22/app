@@ -134,4 +134,14 @@
     <servlet-name>Status</servlet-name>
     <url-pattern>/status</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RegisterDO</display-name>
+    <servlet-name>RegisterDO</servlet-name>
+    <servlet-class>org.church.our.loving.http.RegisterDO</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegisterDO</servlet-name>
+    <url-pattern>/register.do</url-pattern>
+  </servlet-mapping>
 </web-app>
