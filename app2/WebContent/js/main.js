@@ -52,5 +52,5 @@ $(".regbtn").click (function () {
 	window.location.href = "/app2/register.jsp";
 });
 var titleV = $("title").html();
-var subTitle = $("body h1 b").html(titleV);
+var subTitle = $("#nav span").html(titleV);
 });
