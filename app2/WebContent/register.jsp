@@ -11,7 +11,6 @@ request.setCharacterEncoding("utf-8");
 	<jsp:param value="注册" name="title"/>
 </jsp:include>
 <body class="w3-light-grey">
-<!-- Sidenav/menu -->
 <jsp:include page="menu.jsp"></jsp:include>
 <!-- Content -->
 <div class="w3-content" style="max-width:1100px;margin-bottom:20px" id="main">
@@ -25,8 +24,10 @@ request.setCharacterEncoding("utf-8");
 		</div>
 		<div class="w3-group">
 		  <label style="margin-right: 20px;">性别</label>
-		  <input class="w3-border w3-hover-border-black" type="radio" name=gender value="male" required checked>(男) &nbsp;
-		  <input class="w3-border w3-hover-border-black" type="radio" name=gender value="female" required> (女)
+		  <select name="gender">
+		  	<option title="男" value="male">男</option>
+		  	<option title="女" value="female">女</option>
+		  </select>
 		</div>
 		<div class="w3-group">
 		  <label>密码</label>
@@ -34,11 +35,15 @@ request.setCharacterEncoding("utf-8");
 		</div>
 		<div class="w3-group">
 		  <label>邮箱</label>
-		  <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" type="text" name="mail" required>
+		  <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" type="email" name="mail" required>
 		</div>
 		<div class="w3-group">
 		  <label>手机</label>
-		  <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" type="text" name="phone" required>
+		  <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" type="number" name="phone" required min="11111111111" max="99999999999">
+		</div>
+		<div class="w3-group">
+		  <label>住址</label>
+		  <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" type="text" name="address" required>
 		</div>
 		<input type="hidden" name="status" value = "A"/>
 		<div class="w3-group">
