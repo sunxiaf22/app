@@ -7,6 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
 import org.church.our.loving.module.daos.CommonDAO;
 
 public class DBConnection {
@@ -39,6 +43,21 @@ public class DBConnection {
 	    }
 	    return c;
 	}
+	
+	public static Connection getConnectionByJNDI() throws Exception {
+		Connection c = null;
+	    try {
+	    	 Context ctx = new InitialContext(); 
+	    	 Context envContext = (Context)ctx.lookup("java:/comp/env");
+	    	 DataSource ds = (DataSource)envContext.lookup("jdbc/mysqlite"); 
+	         c = ds.getConnection();
+	    } catch ( Exception e ) {
+	      throw e;
+	    }
+	    return c;
+	}
+	
+	
 	
 	public static void freeConnection (Connection connection) {
 		if (null != connection) {
