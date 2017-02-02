@@ -14,7 +14,6 @@ public class SecurityUtil {
 		String uuid = UUID.randomUUID().toString();
 		request.getSession().setAttribute(IOurChurchConstants.FORM_ID, uuid);
 		request.setAttribute(IOurChurchConstants.FORM_ID, uuid);
-		System.out.println("set req attr" + uuid);
 		request.getRequestDispatcher(path).forward(request, response);
 	}
 
@@ -24,7 +23,6 @@ public class SecurityUtil {
 		if (StringUtil.isEmpty(formId)) formId = "";
 		String formIdSession = (String) request.getSession().getAttribute(IOurChurchConstants.FORM_ID);
 		if (StringUtil.isEmpty(formIdSession)) formIdSession = "";
-		System.out.println("get req attr" + formId + " session id : " + formIdSession);
 		if (! formIdSession.equalsIgnoreCase(formId)) {
 			response.sendRedirect(errorPage);
 			return isvalid;

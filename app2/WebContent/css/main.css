@@ -6,3 +6,13 @@
 	margin-top: 70px!important;
 }
 }
+
+@media (min-width:930px) {
+#pconly {
+	display:block;
+}
+#main, footer {
+	margin-left: 350px!important;
+}
+
+}

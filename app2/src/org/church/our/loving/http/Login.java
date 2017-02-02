@@ -26,7 +26,7 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if (SecurityUtil.checkFormRequest("", request, response,"login.jsp")) {
+		if (SecurityUtil.checkFormRequest("", request, response,"error.jsp")) {
 			request.setCharacterEncoding("utf-8");
 			String username = request.getParameter("username");
 			String password = request.getParameter("password");

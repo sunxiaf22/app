@@ -7,9 +7,9 @@ response.setContentType("text/html");
 String receiveformid = (String) request.getSession().getAttribute(IOurChurchConstants.FORM_ID);
 if (StringUtil.isEmpty(receiveformid)) receiveformid = "";
 %>
-<p style="color:red;"><c:out value="${msg }"></c:out></p>
 
-<footer class="w3-container w3-light-grey" >
+<footer class="w3-light-grey" >
+  <p style="color:red;"><c:out value="${msg }"></c:out></p>
   <h4>&nbsp;</h4>
   <!-- 
    <a href="#" class="w3-btn w3-padding w3-black w3-margin "><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>

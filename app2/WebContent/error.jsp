@@ -15,10 +15,7 @@ request.setCharacterEncoding("utf-8");
 <jsp:include page="menu.jsp"></jsp:include>
 <!-- Content -->
 <div class="w3-content" style="max-width:1100px;margin-bottom:20px" id="main"  style="text-align: center;">
-  <div class="w3-panel">
-    <h1><b>&nbsp;</b></h1>
-  </div>
-  <img alt="Error" src="images/timg_error2.jpg"/>
+  <img alt="Error" src="images/timg_error2.jpg" width = "100%"/>
 <p>
 <button name ="btn1" class="w3-btn w3-padding-12 w3-round" onclick="javascript: window.location.href='index.jsp'">返回首页</button>
 </p>
