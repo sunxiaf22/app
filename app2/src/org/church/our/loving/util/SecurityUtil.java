@@ -18,7 +18,8 @@ public class SecurityUtil {
 		request.getRequestDispatcher(path).forward(request, response);
 	}
 
-	public static void checkFormRequest (String formId, HttpServletRequest request, HttpServletResponse response, String errorPage) throws IOException {
+	public static Boolean checkFormRequest (String formId, HttpServletRequest request, HttpServletResponse response, String errorPage) throws IOException {
+		Boolean isvalid = false;
 		if (StringUtil.isEmpty(formId)) formId = request.getParameter(IOurChurchConstants.FORM_ID);
 		if (StringUtil.isEmpty(formId)) formId = "";
 		String formIdSession = (String) request.getSession().getAttribute(IOurChurchConstants.FORM_ID);
@@ -26,7 +27,9 @@ public class SecurityUtil {
 		System.out.println("get req attr" + formId + " session id : " + formIdSession);
 		if (! formIdSession.equalsIgnoreCase(formId)) {
 			response.sendRedirect(errorPage);
-			return;
+			return isvalid;
+		} else {
+			return true;
 		}
 	}
 	

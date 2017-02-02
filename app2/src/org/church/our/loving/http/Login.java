@@ -26,16 +26,17 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		SecurityUtil.checkFormRequest("", request, response,"login.jsp");
-		request.setCharacterEncoding("utf-8");
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
-		if (!StringUtil.isEmpty(username) && !StringUtil.isEmpty(password) && username.equalsIgnoreCase("admin") && password.equalsIgnoreCase("307")) {
-			request.getSession().setAttribute("username", username);
-			response.sendRedirect("index.jsp");
-		}else {
-			request.setAttribute("msg", "密码错误");
-			SecurityUtil.sendRequestDispatcher("login.jsp", request, response);
+		if (SecurityUtil.checkFormRequest("", request, response,"login.jsp")) {
+			request.setCharacterEncoding("utf-8");
+			String username = request.getParameter("username");
+			String password = request.getParameter("password");
+			if (!StringUtil.isEmpty(username) && !StringUtil.isEmpty(password) && username.equalsIgnoreCase("admin") && password.equalsIgnoreCase("307")) {
+				request.getSession().setAttribute("username", username);
+				response.sendRedirect("index.jsp");
+			}else {
+				request.setAttribute("msg", "密码错误");
+				SecurityUtil.sendRequestDispatcher("login.jsp", request, response);
+			}
 		}
 	}
 

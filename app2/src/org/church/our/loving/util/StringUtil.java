@@ -5,6 +5,11 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.log4j.Logger;
+
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.text.ParsePosition;
@@ -122,4 +127,39 @@ public class StringUtil {
 		 return sw.toString();
 	 }
 	 
+	 public static void debug(Logger logger, HttpServletRequest request, String mesg ) {
+		 String message = "";
+		 String username = (String)request.getSession().getAttribute("username") ;
+		 if (isEmpty(username)) {
+			 username = "";
+		 } else {
+			 username = " ##[ USERID: " + username + " ]## ";
+		 }
+		 message = username + " -- " + mesg;
+		 logger.debug(message);
+	 }
+	 
+	 public static void info(Logger logger, HttpServletRequest request, String mesg ) {
+		 String message = "";
+		 String username = (String)request.getSession().getAttribute("username") ;
+		 if (isEmpty(username)) {
+			 username = "";
+		 } else {
+			 username = " ##[ USERID: " + username + " ]## ";
+		 }
+		 message = username + " -- " + mesg;
+		 logger.info(message);
+	 }
+	 
+	 public static void error(Logger logger, HttpServletRequest request, String mesg, Exception e) {
+		 String message = "";
+		 String username = (String)request.getSession().getAttribute("username") ;
+		 if (isEmpty(username)) {
+			 username = "";
+		 } else {
+			 username = " ##[ USERID: " + username + " ]## ";
+		 }
+		 message = username + " -- " + mesg;
+		 logger.error(message, e);
+	 }
 }
