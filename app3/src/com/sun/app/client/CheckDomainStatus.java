@@ -104,6 +104,7 @@ public class CheckDomainStatus {
 		String feedback = getURLContent(MAIN_SITE + domain);
 		if (StringUtil.isEmpty(feedback)) {
 			issuccess = false;
+			TestMail.commonMail("164570618@qq.com", "** Error ** Openshift cannot be available", "Openshift is not available now, please restart the application.", "");
 		}else {
 			issuccess = true;
 		}
