@@ -81,7 +81,7 @@ function getPosition() {
 	if(navigator.geolocation) { 
 		navigator.geolocation.getCurrentPosition(showPosition, showError,{
 			  enableHighAcuracy: true,
-			  timeout: 5000,
+			  timeout: 50000,
 			  maximumAge: 3000
 			}); 
 		$("#mapcontainer").html("HTML5 Geolocation is supported in your browser.");
