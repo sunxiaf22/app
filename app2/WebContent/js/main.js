@@ -37,7 +37,7 @@ function readURL(input) {
 
 
 function initMap(point){ 
-	console.log("initMap...");
+	$("#mapcontainer").html("initMap...");
 	map = new BMap.Map("mapcontainer"); 
 	map.addControl(new BMap.NavigationControl()); 
 	map.addControl(new BMap.ScaleControl()); 
@@ -47,21 +47,46 @@ function initMap(point){
 } 
 
 
-function translatePoint(position){
-	console.log("translate point...");
+function showPosition(position){
+	$("#mapcontainer").html("translate point...");
 	var currentLat = position.coords.latitude; 
 	var currentLon = position.coords.longitude; 
-	console.log(currentLat + ", " + currentLon);
+	$("#mapcontainer").html(currentLat + ", " + currentLon);
 	var gpsPoint = new BMap.Point(currentLon, currentLat); 
 	BMap.Convertor.translate(gpsPoint, 0, initMap); 
 } 
 
+function showError (error) {
+	
+	$("#mapcontainer").html(error);
+	
+	switch(error.code)
+    {
+    case error.PERMISSION_DENIED:
+      $("#mapcontainer").html("User denied the request for Geolocation.");
+      break;
+    case error.POSITION_UNAVAILABLE:
+      $("#mapcontainer").html("Location information is unavailable.");
+      break;
+    case error.TIMEOUT:
+      $("#mapcontainer").html("The request to get user location timed out.");
+      break;
+    case error.UNKNOWN_ERROR:
+      $("#mapcontainer").html("An unknown error occurred.");
+      break;
+    }
+}
+
 function getPosition() {
 	if(navigator.geolocation) { 
-		navigator.geolocation.watchPosition(translatePoint);  
-		console.log("HTML5 Geolocation is supported in your browser.");
+		navigator.geolocation.getCurrentPosition(showPosition, showError,{
+			  enableHighAcuracy: true,
+			  timeout: 5000,
+			  maximumAge: 3000
+			}); 
+		$("#mapcontainer").html("HTML5 Geolocation is supported in your browser.");
 	}else {
-		console.log("HTML5 Geolocation is not supported in your browser.");
+		$("#mapcontainer").html("HTML5 Geolocation is not supported in your browser.");
 	}
 }
 

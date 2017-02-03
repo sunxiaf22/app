@@ -5,6 +5,9 @@
 #main {
 	margin-top: 70px!important;
 }
+footer {
+	margin-left: 10px!important;
+}
 }
 
 @media (min-width:930px) {

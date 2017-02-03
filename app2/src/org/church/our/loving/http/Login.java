@@ -30,12 +30,6 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		try {
-			StringUtil.debug(logger, request, "testing db connection : " + DBConnection.getConnectionByJNDI());
-		} catch (Exception e) {
-			StringUtil.error(logger, request, "Error", e);
-		}
-		
 		if (SecurityUtil.checkFormRequest("", request, response,"error.jsp")) {
 			request.setCharacterEncoding("utf-8");
 			String username = request.getParameter("username");
