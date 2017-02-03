@@ -16,7 +16,7 @@ request.setCharacterEncoding("utf-8");
 <div class="w3-content" style="max-width:1100px;margin-bottom:20px" id="main">
   <!-- Contact -->
   <div  class="w3-row-padding w3-card-4 w3-padding-medium w3-round-large w3-padding-bottom">
-	  <form class="w3-container" method="POST" enctype="multipart/form-data" action="#">
+	  <form class="w3-container" method="POST" enctype="multipart/form-data" action="register.do">
 	  	<input type="hidden" name = "formtype" value = "register">
 		<div class="w3-group">
 		  <label>姓名</label>
@@ -24,7 +24,7 @@ request.setCharacterEncoding("utf-8");
 		</div>
 		<div class="w3-group">
 		  <label style="margin-right: 20px;">性别</label>
-		  <select name="gender">
+		  <select name="gender" style="width:100%;">
 		  	<option title="男" value="male">男</option>
 		  	<option title="女" value="female">女</option>
 		  </select>
@@ -39,11 +39,15 @@ request.setCharacterEncoding("utf-8");
 		</div>
 		<div class="w3-group">
 		  <label>手机</label>
-		  <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" type="number" name="phone" required min="11111111111" max="99999999999">
+		  <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" type="number" name="phone" required>
 		</div>
 		<div class="w3-group">
 		  <label>住址</label>
 		  <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" type="text" name="address" required>
+		</div>
+		<div class="w3-group">
+		  <label>备注</label>
+		  <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" type="text" name="comments" >
 		</div>
 		<input type="hidden" name="status" value = "A"/>
 		<div class="w3-group">

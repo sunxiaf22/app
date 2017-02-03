@@ -9,11 +9,7 @@ if (StringUtil.isEmpty(receiveformid)) receiveformid = "";
 %>
 
 <footer class="w3-light-grey" >
-  <p style="color:red;"><c:out value="${msg }"></c:out></p>
-  <h4>&nbsp;</h4>
-  <!-- 
-   <a href="#" class="w3-btn w3-padding w3-black w3-margin "><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
-   -->
+  <div style="color:red;" id="message"><c:out value="${msg }"></c:out></div>
   <div class="w3-xlarge w3-section">
     <i class="fa fa-facebook-official w3-hover-text-indigo"></i>
     <i class="fa fa-instagram w3-hover-text-purple"></i>
@@ -22,7 +18,7 @@ if (StringUtil.isEmpty(receiveformid)) receiveformid = "";
     <i class="fa fa-twitter w3-hover-text-light-blue"></i>
     <i class="fa fa-linkedin w3-hover-text-indigo"></i>
   </div>
-  <p>&copy; 2016 Sun Xia</p>
+  <div style="text-align:center; margin-top:20px;">&copy; 2016 Sun Xia</div>
   <div id="mapcontainer"></div>
 </footer>
 

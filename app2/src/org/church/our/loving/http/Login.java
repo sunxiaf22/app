@@ -5,9 +5,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.apache.log4j.Logger;
-import org.church.our.loving.test.DBConnection;
 import org.church.our.loving.util.SecurityUtil;
 import org.church.our.loving.util.StringUtil;
 
@@ -16,7 +13,6 @@ import org.church.our.loving.util.StringUtil;
  */
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final Logger logger = Logger.getLogger(Login.class);
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -31,6 +27,7 @@ public class Login extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if (SecurityUtil.checkFormRequest("", request, response,"error.jsp")) {
+			StringUtil.debug(this.getClass().getName(), request, "Login Action");
 			request.setCharacterEncoding("utf-8");
 			String username = request.getParameter("username");
 			String password = request.getParameter("password");

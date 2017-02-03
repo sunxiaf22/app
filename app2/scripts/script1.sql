@@ -45,3 +45,16 @@ updatedby	TEXT,
 updateddt	TEXT,
 status	TEXT
 );
+
+
+drop table tbl_configurations;
+create table tbl_configurations (
+id INTEGER PRIMARY KEY autoincrement,
+name   TEXT,
+value  TEXT,
+createdby	TEXT,
+createddt	TEXT,
+updatedby	TEXT,
+updateddt	TEXT,
+status	TEXT
+);

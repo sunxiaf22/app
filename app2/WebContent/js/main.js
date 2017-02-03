@@ -115,8 +115,34 @@ var subTitle = $("#nav span").html(titleV);
 var pctitle = "<div class=\"w3-panel\" id=\"pconly\"><h3><b>"+titleV+"</b></h3></div>";
 $("#main").prepend(pctitle);
 
-getPosition();
+//getPosition();
+
+//validate();
 });
+function validate() {
+	$("form button[type='submit']").click (function () {
+		return validateMandatory();
+	});
+}
 
-
-
+function validateMandatory() {
+	var ispass = true;
+	var messgeError = "";
+	$("form input[required]").each (function (idx, ele) {
+		var inputVal = $(ele).val();
+		if (inputVal == "") {
+			$(ele).focus();
+			var label = $(ele).parent().find("label").html();
+			if (messgeError != "") {
+				label = ", " + label;
+			}
+			messgeError += label; 
+			ispass = false;
+		}
+	});
+	
+	$("footer #message").html("请输入 : " + messgeError);
+	
+	return ispass;
+	
+}

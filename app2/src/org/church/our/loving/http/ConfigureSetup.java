@@ -43,11 +43,13 @@ public class ConfigureSetup extends HttpServlet {
 		try {
 			File targetfile = new File(StringUtil.getRootDir() + "/upload/log4j.properties");
 			if (targetfile.exists()) {
-				PropertyConfigurator.configure(StringUtil.getRootDir() + "/upload/log4j.properties"); 
+				PropertyConfigurator.configure(StringUtil.getRootDir() + "/upload/log4j.properties");
+				if (StringUtil.isEmpty(uploadFolder))
 				uploadFolder = IOurChurchConstants.UPLOAD_DIR;
 			} else {
 				PropertyConfigurator.configure(getServletContext().getRealPath("/") + "config/log4j.properties");
 				ROOT_DIR = getServletContext().getRealPath("/");
+				if (StringUtil.isEmpty(uploadFolder))
 				uploadFolder = getServletContext().getRealPath("/") + "upload/";
 			}
 			

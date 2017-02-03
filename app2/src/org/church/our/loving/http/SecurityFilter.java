@@ -38,7 +38,11 @@ public class SecurityFilter implements Filter {
 		HttpServletRequest request2 = (HttpServletRequest) request;
 		HttpServletResponse response2 = (HttpServletResponse) response;
 		String url = request2.getRequestURI();
-		if (url.contains("login") || url.endsWith("register.jsp") || url.endsWith("forget.jsp")|| url.endsWith("error.jsp")) {
+		if (url.contains("login") 
+				|| url.endsWith("register.jsp")
+				|| url.endsWith("register.do")
+				|| url.endsWith("forget.jsp")
+				|| url.endsWith("error.jsp")) {
 			chain.doFilter(request, response);
 		} else {
 			String sessionName = (String)request2.getSession().getAttribute("username");

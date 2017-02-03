@@ -15,7 +15,7 @@ import java.io.StringWriter;
 import java.text.ParsePosition;
 
 public class StringUtil {
-
+	private static final Logger logger = Logger.getLogger(StringUtil.class); 
     public static final String DATE_FORMAT_FULL_MONTH = "dd MMMMM yyyy";
     public static final String DATE_FORMAT_SLASH = "dd/MM/yyyy";
     public static final String DATE_FORMAT_SESCOND = "yyyy-MM-dd'T'HH:mm:ss'Z'";
@@ -127,7 +127,7 @@ public class StringUtil {
 		 return sw.toString();
 	 }
 	 
-	 public static void debug(Logger logger, HttpServletRequest request, String mesg ) {
+	 public static void debug(String obj, HttpServletRequest request, String mesg ) {
 		 String message = "";
 		 String username = (String)request.getSession().getAttribute("username") ;
 		 if (isEmpty(username)) {
@@ -135,11 +135,12 @@ public class StringUtil {
 		 } else {
 			 username = " ##[ USERID: " + username + " ]## ";
 		 }
+		 username += " ##[ CALLER: " + obj + " ]## ";
 		 message = username + " -- " + mesg;
 		 logger.debug(message);
 	 }
 	 
-	 public static void info(Logger logger, HttpServletRequest request, String mesg ) {
+	 public static void info(Object obj, HttpServletRequest request, String mesg ) {
 		 String message = "";
 		 String username = (String)request.getSession().getAttribute("username") ;
 		 if (isEmpty(username)) {
@@ -147,11 +148,12 @@ public class StringUtil {
 		 } else {
 			 username = " ##[ USERID: " + username + " ]## ";
 		 }
+		 username += " ##[ CALLER: " + obj.getClass().getName() + " ]## ";
 		 message = username + " -- " + mesg;
 		 logger.info(message);
 	 }
 	 
-	 public static void error(Logger logger, HttpServletRequest request, String mesg, Exception e) {
+	 public static void error(Object obj, HttpServletRequest request, String mesg, Exception e) {
 		 String message = "";
 		 String username = (String)request.getSession().getAttribute("username") ;
 		 if (isEmpty(username)) {
@@ -159,6 +161,7 @@ public class StringUtil {
 		 } else {
 			 username = " ##[ USERID: " + username + " ]## ";
 		 }
+		 username += " ##[ CALLER: " + obj.getClass().getName() + " ]## ";
 		 message = username + " -- " + mesg;
 		 logger.error(message, e);
 	 }
