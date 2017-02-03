@@ -35,6 +35,38 @@ function readURL(input) {
     }
 }
 
+
+function initMap(point){ 
+	console.log("initMap...");
+	map = new BMap.Map("mapcontainer"); 
+	map.addControl(new BMap.NavigationControl()); 
+	map.addControl(new BMap.ScaleControl()); 
+	map.addControl(new BMap.OverviewMapControl()); 
+	map.centerAndZoom(point, 15); 
+	map.addOverlay(new BMap.Marker(point)) 
+} 
+
+
+function translatePoint(position){
+	console.log("translate point...");
+	var currentLat = position.coords.latitude; 
+	var currentLon = position.coords.longitude; 
+	console.log(currentLat + ", " + currentLon);
+	var gpsPoint = new BMap.Point(currentLon, currentLat); 
+	BMap.Convertor.translate(gpsPoint, 0, initMap); 
+} 
+
+function getPosition() {
+	if(navigator.geolocation) { 
+		navigator.geolocation.watchPosition(translatePoint); 
+		console.log("HTML5 Geolocation is supported in your browser.");
+	}else {
+		console.log("HTML5 Geolocation is not supported in your browser.");
+	}
+}
+
+
+
 $(document).ready(function () {
 $("#toTop").click (function () {
 	$(window).scrollTop(0);
@@ -56,4 +88,8 @@ var subTitle = $("#nav span").html(titleV);
 var pctitle = "<div class=\"w3-panel\" id=\"pconly\"><h3><b>"+titleV+"</b></h3></div>";
 $("#main").prepend(pctitle);
 
+getPosition();
 });
+
+
+

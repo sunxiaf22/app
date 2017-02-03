@@ -23,12 +23,15 @@ if (StringUtil.isEmpty(receiveformid)) receiveformid = "";
     <i class="fa fa-linkedin w3-hover-text-indigo"></i>
   </div>
   <p>&copy; 2016 Sun Xia</p>
+  <div id="mapcontainer"></div>
 </footer>
 
 <a href ="javascript:void(0);" id="toTop" class="w3-circle" style="line-height: 400%; display:none; position: fixed; opacity: 0.8; width: 60px; height: 60px; z-index: 4; top: 85%; right: 5px; background-color: gray; text-decoration: none; text-align: center; vertical-align: middle;">
 	TOP &uarr;
 </a>
 <script src="js/jquery-1.11.3.js"  type="text/javascript"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=wqBXfIN3HkpM1AHKWujjCdsi"></script>
+<script type="text/javascript" src="js/convertor.js"></script>
 <script src="js/main.js"  type="text/javascript"></script>
 
 <script>
