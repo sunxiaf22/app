@@ -1,12 +1,10 @@
 package org.church.our.loving.test;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
@@ -36,8 +34,9 @@ public class DBConnection {
 	public static Connection getConnection() throws Exception {
 		Connection c = null;
 	    try {
-	      Class.forName("org.sqlite.JDBC");
-	      c = DriverManager.getConnection("jdbc:sqlite://C:/Users/Jason/mydb.db");
+	     // Class.forName("org.sqlite.JDBC");
+	     // c = DriverManager.getConnection("jdbc:sqlite://C:/Users/Jason/mydb.db");
+	    	c = getConnectionByJNDI();
 	    } catch ( Exception e ) {
 	      throw e;
 	    }
