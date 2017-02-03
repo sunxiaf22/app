@@ -30,7 +30,7 @@ public class CheckDomainStatus {
 		} 
 		
 		try {
-			updateWebSite(finalDomain);
+			boolean mainDomain = updateWebSite(finalDomain);
 			boolean doingLoop = true;
 			while (doingLoop) {
 				String webContent = getURLContent(finalDomain + "/"+SERVER_NAME+"/status");
@@ -41,8 +41,11 @@ public class CheckDomainStatus {
 					finalDomain = start(domain);
 					String content_mail = "<p> Domain server was restarted! Using new domain :  " + finalDomain + "</p>";  
 					TestMail.commonMail("164570618@qq.com", "** Note ** App domain was restarted", content_mail, "");
-					updateWebSite(finalDomain);
+					mainDomain = updateWebSite(finalDomain);
 				} 
+				if (!mainDomain) {
+					mainDomain = updateWebSite(finalDomain);
+				}
 				StringUtil.debug("Sleeping...");
 				Thread.sleep(sleepInterTime * 60 * 1000);
 			}
@@ -68,7 +71,7 @@ public class CheckDomainStatus {
 	public static String getURLContent (String url_v) {
 		InputStream contentStream = null;
 		InputStreamReader isr = null;
-		BufferedReader br = null;
+		BufferedReader br = null; 
 		String content ="";
 		try {
 			URL urlConnection = new URL(url_v);
@@ -96,9 +99,16 @@ public class CheckDomainStatus {
 		return content;
 	}
 	
-	public static void updateWebSite (String domain) {
+	public static boolean updateWebSite (String domain) {
+		boolean issuccess = false;
 		String feedback = getURLContent(MAIN_SITE + domain);
-		StringUtil.debug("Feedback is : " + feedback);
+		if (StringUtil.isEmpty(feedback)) {
+			issuccess = false;
+		}else {
+			issuccess = true;
+		}
+		StringUtil.debug("Feedback is : " + feedback + " , is success ? " + issuccess);
+		return issuccess;
 	}
 	
 	public static void callBat (String cmdpath){
