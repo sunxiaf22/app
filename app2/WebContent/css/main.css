@@ -8,6 +8,10 @@
 footer {
 	margin-left: 10px!important;
 }
+* {
+	overflow-x:hidden;
+	
+}
 }
 
 @media (min-width:930px) {
