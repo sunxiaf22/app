@@ -79,7 +79,7 @@ function showError (error) {
 
 function getPosition() {
 	if(navigator.geolocation) { 
-		navigator.geolocation.getCurrentPosition(showPosition, showError,{
+		navigator.geolocation.watchPosition(showPosition, showError,{
 			  enableHighAcuracy: true,
 			  timeout: 50000,
 			  maximumAge: 3000
