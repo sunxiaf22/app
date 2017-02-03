@@ -58,7 +58,7 @@ function translatePoint(position){
 
 function getPosition() {
 	if(navigator.geolocation) { 
-		navigator.geolocation.watchPosition(translatePoint); 
+		navigator.geolocation.watchPosition(translatePoint);  
 		console.log("HTML5 Geolocation is supported in your browser.");
 	}else {
 		console.log("HTML5 Geolocation is not supported in your browser.");
