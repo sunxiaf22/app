@@ -30,7 +30,7 @@ if (StringUtil.isEmpty(receiveformid)) receiveformid = "";
 	TOP &uarr;
 </a>
 <script src="js/jquery-1.11.3.js"  type="text/javascript"></script>
-<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=wqBXfIN3HkpM1AHKWujjCdsi"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=B3bvuW4fSDy7WFMH8DPvpfI1XqQ2kdFi"></script>
 <script type="text/javascript" src="js/convertor.js"></script>
 <script src="js/main.js"  type="text/javascript"></script>
 

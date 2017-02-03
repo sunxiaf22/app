@@ -43,6 +43,8 @@ function initMap(point){
 	map.addControl(new BMap.ScaleControl()); 
 	map.addControl(new BMap.OverviewMapControl()); 
 	map.centerAndZoom(point, 15); 
+	map.enableScrollWheelZoom();  
+	map.enableContinuousZoom(); 
 	map.addOverlay(new BMap.Marker(point)) 
 } 
 
